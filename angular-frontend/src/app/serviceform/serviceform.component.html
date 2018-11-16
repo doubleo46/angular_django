@@ -1,0 +1,13 @@
+<form [formGroup]="serviceForm" (ngSubmit)=onSubmit()>
+    <mat-form-field>
+      <input matInput placeholder="name" formControlName="name">
+    </mat-form-field>
+  
+  <br>
+  <mat-form-field>
+    <textarea matInput placeholder="description" formControlName="description"></textarea>
+  </mat-form-field>
+  <br>
+  <button type="submit" [disabled]= '!serviceForm.valid'>Submit</button>
+
+  </form>

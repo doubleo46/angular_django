@@ -13,4 +13,5 @@ class CreateCustomer(viewsets.ViewSet):
     def create(self, request):
         """Save customer data from post."""
         print(request.data)
+        Customers.objects.create(name=request.data['name'],age=request.data['age'])
         return Response({"st": 200})

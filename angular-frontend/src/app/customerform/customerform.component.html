@@ -1,3 +1,10 @@
-<p>
-  customerform works!
-</p>
+<form [formGroup]="customerForm" (ngSubmit)="onSubmit()">
+  <mat-form-field>
+    <input matInput placeholder="name" formControlName="name">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="age" formControlName="age">
+  </mat-form-field>
+  <button type="submit" [disabled]="!customerForm.valid">Submit</button>
+</form>

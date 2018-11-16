@@ -1,0 +1,9 @@
+<form [formGroup]=testingForm (ngSubmit)=trySubmit()>
+  <mat-form-field>
+    <input matInput placeholder="name" formControlName="name">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="tesk" formControlName="task">
+  </mat-form-field>
+  <button type="submit" [disabled]='!testingForm.valid'>Submit</button>
+</form>
