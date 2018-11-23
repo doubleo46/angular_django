@@ -26,12 +26,17 @@ class HomePageTest(unittest.TestCase):
         form.submit()
         time.sleep(3)
         headding = self.browser.find_element_by_tag_name('h1')
-        self.assertIn('Site administration',headding.text, 'Not Login.')
+        self.assertIn('Site administration', headding.text, 'Not Login.')
+
+    def test_customer_list(self):
+        self.browser.get('http://localhost:8046/api/customers')
+        headding = self.browser.find_element_by_tag_name('h2')
+        self.assertIn('Customers', headding.text, 'message')
 
 
     def tearDown(self):
         """Quit test."""
-        # self.browser.quit()
+        self.browser.quit()
         pass
 
 
