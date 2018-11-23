@@ -4,8 +4,8 @@ from django.db import models
 
 
 class Customers(models.Model):
-	"""Customer data."""
+    """Customer data."""
 
-	name = models.CharField(max_length=30)
-	age  = models.IntegerField(null=True)
-	is_active = models.BooleanField(default=True)
+    name = models.CharField(max_length=30)
+    age = models.IntegerField(null=True)
+    is_active = models.BooleanField(default=True)
