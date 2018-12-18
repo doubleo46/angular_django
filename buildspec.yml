@@ -7,10 +7,10 @@ env:
     AWS_DEFAULT_REGION: "region"
     AWS_ACCESS_KEY_ID: "key_id"
     AWS_SECRET_ACCESS_KEY: "main_key"
+    IMAGE_TAG: "IMAGE_TAG"
 phases:
   pre_build:
     commands:
-      - IMAGE_TAG = $(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
       - echo Logging in to Amazon ECR...
       - aws --version
       - echo  $AWS_DEFAULT_REGION
@@ -20,18 +20,15 @@ phases:
   build:
     commands:
       - echo Build started on `date` $IMAGE_TAG
-      - echo $IMAGE_TAG 'img ' $IMAGE_TAG
       - echo Building the Docker image...
       - echo RepoURI $REPOSITORY_URI
       - docker build -t "751898685448.dkr.ecr.us-east-2.amazonaws.com/angular_django:latest" .
-      - docker tag $REPOSITORY_URI:latest $REPOSITORY_URI:$IMAGE_TAG
   post_build:
     commands:
       - docker images
       - echo Build completed on `date`
       - echo Pushing the Docker images...
       - docker push $REPOSITORY_URI:latest
-      - docker push $REPOSITORY_URI:$IMAGE_TAG
 
       - echo Writing image definitions file...
       - mkdir -p out
