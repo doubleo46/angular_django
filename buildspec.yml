@@ -2,7 +2,6 @@ version: 0.1
 
 
 env:
-  variables:
   parameter-store:
     REPOSITORY_URI: "repo_uri"
     AWS_DEFAULT_REGION: "region"
