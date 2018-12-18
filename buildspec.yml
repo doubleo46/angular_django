@@ -3,9 +3,9 @@ version: 0.1
 
 env:
   parameter-store:
-    region: "region"
-    key_id: "key_id"
-    scrt_key: "main_key"
+    AWS_DEFAULT_REGION: "region"
+    AWS_KEY_ID: "key_id"
+    AWS_SECRET_ACCESS_KEY: "main_key"
 phases:
   pre_build:
     commands:
