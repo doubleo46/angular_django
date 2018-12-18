@@ -19,7 +19,7 @@ phases:
       - IMAGE_TAG=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
   build:
     commands:
-      - echo Build started on `date`
+      - echo Build started on `date` $IMAGE_TAG
       - echo Building the Docker image...
       - echo RepoURI $REPOSITORY_URI
       - docker build .
