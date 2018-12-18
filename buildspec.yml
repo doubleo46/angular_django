@@ -2,6 +2,8 @@ version: 0.1
 
 
 env:
+  variables:
+    IMAGE_TAG : $(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
   parameter-store:
     REPOSITORY_URI: "repo_uri"
     AWS_DEFAULT_REGION: "region"
@@ -16,7 +18,6 @@ phases:
       - echo  $AWS_ACCESS_KEY_ID
       - echo  $AWS_SECRET_ACCESS_KEY
       - $(aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)
-      - IMAGE_TAG=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
   build:
     commands:
       - echo Build started on `date` $IMAGE_TAG
