@@ -2,6 +2,8 @@ version: 0.1
 
 
 env:
+  variables:
+    REPOSITORY_URI: "751898685448.dkr.ecr.us-east-2.amazonaws.com/angular_django"
   parameter-store:
     AWS_DEFAULT_REGION: "region"
     AWS_ACCESS_KEY_ID: "key_id"
@@ -15,7 +17,6 @@ phases:
       - echo  $AWS_ACCESS_KEY_ID
       - echo  $AWS_SECRET_ACCESS_KEY
       - $(aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)
-      - REPOSITORY_URI=751898685448.dkr.ecr.us-east-2.amazonaws.com/angular_django
       - IMAGE_TAG=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
   build:
     commands:
