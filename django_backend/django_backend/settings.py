@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',
     'django_backend',
-    'customers'
+    'customers',
+    'notes'
 ]
 
 MIDDLEWARE = [

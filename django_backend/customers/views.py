@@ -9,7 +9,6 @@ from .models import Customers
 from .forms import CustomerForm
 
 
-
 @permission_classes((permissions.AllowAny,))
 class CreateCustomer(viewsets.ViewSet):
     """API to create customers."""
@@ -30,15 +29,17 @@ class CustomersView(ListView):
 
 class CustomerCreate(CreateView):
     model = Customers
-    fields = ['name','age']
+    fields = ['name', 'age']
     template_name = 'customers/customer_form.html'
     success_url = reverse_lazy('customers')
 
+
 class CustomerUpdate(UpdateView):
     model = Customers
-    fields = ['name','age']
+    fields = ['name', 'age']
     template_name = 'customers/customer_form.html'
     success_url = reverse_lazy('customers')
+
 
 class CustomerDelete(DeleteView):
     model = Customers
