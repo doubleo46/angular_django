@@ -1,11 +1,20 @@
 version: 0.1
 
+
+env:
+  parameter-store:
+    region: "region"
+    key_id: "key_id"
+    scrt_key: "secret_key"
 phases:
   pre_build:
     commands:
       - echo Logging in to Amazon ECR...
       - aws --version
-      - echo 'aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email'
+      - echo  $AWS_DEFAULT_REGION
+      - echo  $region
+      - echo  $key_id
+      - echo  $scrt_key
       - $(aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)
       - REPOSITORY_URI=751898685448.dkr.ecr.us-east-2.amazonaws.com/angular_django
       - IMAGE_TAG=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
