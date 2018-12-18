@@ -5,7 +5,7 @@ env:
   parameter-store:
     region: "region"
     key_id: "key_id"
-    scrt_key: "secret_key"
+    scrt_key: "main_key"
 phases:
   pre_build:
     commands:
