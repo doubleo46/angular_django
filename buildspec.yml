@@ -3,7 +3,6 @@ version: 0.1
 
 env:
   variables:
-    IMAGE_TAG : $(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
   parameter-store:
     REPOSITORY_URI: "repo_uri"
     AWS_DEFAULT_REGION: "region"
@@ -12,6 +11,7 @@ env:
 phases:
   pre_build:
     commands:
+      - IMAGE_TAG = $(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
       - echo Logging in to Amazon ECR...
       - aws --version
       - echo  $AWS_DEFAULT_REGION
