@@ -4,7 +4,7 @@ version: 0.1
 env:
   parameter-store:
     AWS_DEFAULT_REGION: "region"
-    AWS_KEY_ID: "key_id"
+    AWS_ACCESS_KEY_ID: "key_id"
     AWS_SECRET_ACCESS_KEY: "main_key"
 phases:
   pre_build:
@@ -12,7 +12,7 @@ phases:
       - echo Logging in to Amazon ECR...
       - aws --version
       - echo  $AWS_DEFAULT_REGION
-      - echo  $AWS_KEY_ID
+      - echo  $AWS_ACCESS_KEY_ID
       - echo  $AWS_SECRET_ACCESS_KEY
       - $(aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)
       - REPOSITORY_URI=751898685448.dkr.ecr.us-east-2.amazonaws.com/angular_django
