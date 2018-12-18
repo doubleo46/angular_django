@@ -2,9 +2,8 @@ version: 0.1
 
 
 env:
-  variables:
-    REPOSITORY_URI: "751898685448.dkr.ecr.us-east-2.amazonaws.com/angular_django"
   parameter-store:
+    REPOSITORY_URI: "repo_uri"
     AWS_DEFAULT_REGION: "region"
     AWS_ACCESS_KEY_ID: "key_id"
     AWS_SECRET_ACCESS_KEY: "main_key"
