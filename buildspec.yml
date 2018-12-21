@@ -32,6 +32,6 @@ phases:
 
       - echo Writing image definitions file...
       - mkdir -p out
-      - printf '[{"name":"angular_django","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > out/honeycomb.json
+      - printf '[{"name":"angular_django_container","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > out/honeycomb.json
 artifacts:
     files: out/*.json
