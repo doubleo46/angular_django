@@ -16,6 +16,7 @@ phases:
       - echo  $AWS_DEFAULT_REGION
       - echo  $AWS_ACCESS_KEY_ID
       - echo  $AWS_SECRET_ACCESS_KEY
+      - echo $CODEBUILD_RESOLVED_SOURCE_VERSION | head -c 8
       - IMAGE_TAG= "$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | head -c 8)"
       - $(aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)
   build:
