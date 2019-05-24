@@ -1,7 +1,7 @@
 # Requirements
 
 django>=2.1.2
-djangorestframework==3.8.2
+djangorestframework>=3.9.1
 django-cors-headers
 channels
 bootstrap_admin
